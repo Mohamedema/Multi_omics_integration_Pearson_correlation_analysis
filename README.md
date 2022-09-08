@@ -1,8 +1,4 @@
-# Multi-omics-integration
+# Comaprasion_between_Factor_base_Multi-omics-integration_methods
 
-##Simulation and performance for multi omics integration tools benchmark 
-
-
-Multi_omics_integration_project.R 
-
-#RNA and Protein data filtration
+#Correlation_factor_base_analysis_script_contain_Integromics_function
+##Integromics_function_return_directory_contains_all_tools_features_loading,samples_scores, correlation, and visualization_for_all_methods)
