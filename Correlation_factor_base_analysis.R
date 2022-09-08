@@ -8,6 +8,7 @@
 ####################
 
 #Integromics_function_return_directory_contains_all_tools_features_loading,samples_scores, correlation, and visualization_for_all_methods)
+#MOFA+(Multi_omics_factor_analysis)_MFA(Multile_factor_analysis)_FABIA_GFA(Group_Factor_analysis)
 Integromics<- function(n_features, n_samples,
                        n_factors){
   #' @param nbFeatures vector with number of features per dataset
