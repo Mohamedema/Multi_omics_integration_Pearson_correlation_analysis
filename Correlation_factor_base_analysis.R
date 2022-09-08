@@ -8,11 +8,10 @@
 ####################
 
 #Integromics_function_return_directory_contains_all_tools_features_loading,samples_scores, correlation, and visualization_for_all_methods)
-Integromics<- function(n_features, n_samples, n_groups,
+Integromics<- function(n_features, n_samples,
                        n_factors){
   #' @param nbFeatures vector with number of features per dataset
   #' @param nbSamples integer, number of samples
-  #' @param n_groups integer, number of groups
   #' @param nbFactors integer, number of factors
   
   ###Create_run_directory
@@ -22,6 +21,7 @@ Integromics<- function(n_features, n_samples, n_groups,
   #Path_variable_to_store_main_run_folder
   path= getwd()
   #Simulate_data
+ 
   MOFAexample <- make_example_data(n_views=2, n_features=n_features, n_samples = n_samples, n_groups = 1,
                                    n_factors = n_factors, likelihood = "gaussian",
                                    lscales = 1, sample_cov = NULL, as.data.frame = FALSE)
@@ -99,9 +99,9 @@ Integromics<- function(n_features, n_samples, n_groups,
   #Omic1_index_take_value_omic1_in_label_column
   factor1_df_loading$label[1: n_features] = "omic1"
   #Omic2_index_take_value_omic2_in_label_column
-  factor1_df_loading$label[(n_features+1): (n_features * n_views)] = "omic2"
+  factor1_df_loading$label[(n_features+1): (n_features * 2)] = "omic2"
   #Plot_MOFA_feature_loading_different_color_per_omics x= c(1:(n_features * n_views)
-  MOFA_feature_loading_p= ggplot(factor1_df_loading, aes(x= c(1:(n_features * n_views)), y=`weights1$weights`, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
+  MOFA_feature_loading_p= ggplot(factor1_df_loading, aes(x= c(1:(n_features * 2)), y=`weights1$weights`, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
     labs(y= "Feature weights", x = "Feature index") + geom_point(alpha=0.5, size=1) + theme_bw() +  
     theme(plot.title = element_text(hjust = 0.5, face = 'bold'), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), legend.position = 'none', legend.background = element_rect(fill="white", size=0.6, linetype="solid", colour ="lemonchiffon4"))
   #Export_MOFA_feature_loading_plot
@@ -139,9 +139,9 @@ Integromics<- function(n_features, n_samples, n_groups,
   #Omic1_index_take_value_omic1_in_label_column
   feature_weight$label[1: n_features] = "omic1"
   #Omic2_index_take_value_omic2_in_label_column
-  feature_weight$label[(n_features+1): (n_features * n_views)] = "omic2"
+  feature_weight$label[(n_features+1): (n_features * 2)] = "omic2"
   #Plot_ground_truth_feature_loading_different_color_per_omics
-  ground_truth_feature_loading= ggplot(feature_weight, aes(x= c(1:(n_features * n_views)), y=weight, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
+  ground_truth_feature_loading= ggplot(feature_weight, aes(x= c(1:(n_features * 2)), y=weight, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
     labs(y= "Feature weights", x = "Feature index") + geom_point(alpha=0.5, size=1) + theme_bw() +  
     theme(plot.title = element_text(hjust = 0.5, face = 'bold'), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), legend.position = 'none', legend.background = element_rect(fill="white", size=0.6, linetype="solid", colour ="lemonchiffon4"))
   #Export_ground_truth_feature_loading_plot
@@ -165,9 +165,9 @@ Integromics<- function(n_features, n_samples, n_groups,
   #Omic1_index_take_value_omic1_in_label_column
   BC1_df_loading$label[1: n_features] = "omic1"
   #Omic2_index_take_value_omic2_in_label_column
-  BC1_df_loading$label[(n_features+1): (n_features * n_views)] = "omic2"
+  BC1_df_loading$label[(n_features+1): (n_features * 2)] = "omic2"
   #Plot_FABIA_feature_loading_different_color_per_omics
-  FABIA_feature_loading_plot=ggplot(BC1_df_loading, aes(x= c(1:(n_features * n_views)), y=loadings10_FABIA, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
+  FABIA_feature_loading_plot=ggplot(BC1_df_loading, aes(x= c(1:(n_features * 2)), y=loadings10_FABIA, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
     labs(y= "Feature weights", x = "Feature index") + geom_point(alpha=0.5, size=1) + theme_bw() +  
     theme(plot.title = element_text(hjust = 0.5, face = 'bold'), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), legend.position = 'none', legend.background = element_rect(fill="white", size=0.6, linetype="solid", colour ="lemonchiffon4"))
   
@@ -201,9 +201,9 @@ Integromics<- function(n_features, n_samples, n_groups,
   #Omic1_index_take_value_omic1_in_label_column
   loadings1_scaled_after$label[1: n_features] = "omic1"
   #Omic2_index_take_value_omic2_in_label_column
-  loadings1_scaled_after$label[(n_features+1): (n_features * n_views)] = "omic2"
+  loadings1_scaled_after$label[(n_features+1): (n_features * 2)] = "omic2"
   #Plot_MFA_feature_loading_different_color_per_omics
-  MFA_loading_plot= ggplot(loadings1_scaled_after, aes(x= c(1:(n_features * n_views)), y=MFA_loading, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
+  MFA_loading_plot= ggplot(loadings1_scaled_after, aes(x= c(1:(n_features * 2)), y=MFA_loading, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
     labs(y= "Feature weights", x = "Feature index") + geom_point(alpha=0.5, size=1) + theme_bw() +  
     theme(plot.title = element_text(hjust = 0.5, face = 'bold'), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), legend.position = 'none', legend.background = element_rect(fill="white", size=0.6, linetype="solid", colour ="lemonchiffon4"))
   
@@ -239,9 +239,9 @@ Integromics<- function(n_features, n_samples, n_groups,
   #Omic1_index_take_value_omic1_in_label_column
   g_factor1_df_loading$label[1: n_features] = "omic1"
   #Omic2_index_take_value_omic2_in_label_column
-  g_factor1_df_loading$label[(n_features+1): (n_features * n_views)] = "omic2"
+  g_factor1_df_loading$label[(n_features+1): (n_features * 2)] = "omic2"
   #Plot_GFA_feature_loading_different_color_per_omics
-  GFA_loading_plot=ggplot(g_factor1_df_loading, aes(x= c(1:(n_features * n_views)), y=GFA_weight.V1...BC_num, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
+  GFA_loading_plot=ggplot(g_factor1_df_loading, aes(x= c(1:(n_features * 2)), y=GFA_weight.V1...BC_num, color=label)) + scale_colour_manual(values = c("lightcoral", "cyan3")) + 
     labs(y= "Feature weights", x = "Feature index") + geom_point(alpha=0.5, size=1) + theme_bw() +  
     theme(plot.title = element_text(hjust = 0.5, face = 'bold'), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), legend.position = 'none', legend.background = element_rect(fill="white", size=0.6, linetype="solid", colour ="lemonchiffon4"))
   
@@ -566,6 +566,6 @@ make_example_data <- function(n_views=3, n_features=100, n_samples = 50, n_group
 
 
 #Correlation_on_feature_loading_and_sample_scores
-Loadings_scores_correlation = Integromics(n_views=2, n_features=1000, n_samples = 100,                         n_factors = 1)
+Loadings_scores_correlation = Integromics(n_features=1000, n_samples = 100, n_factors = 1)
 
 
