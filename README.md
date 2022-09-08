@@ -1,5 +1,6 @@
 # Comaprasion_between_Factor_base_Multi-omics-integration_methods
 
-#Correlation_factor_base_analysis_script
+#Pearson_correlation_analysis_for_factor_base_analysis_tools
+#Comparsion_base_on_MOFA_simulated_data_for_the_following_methods
 ##MOFA+(Multi_omics_factor_analysis)_MFA(Multile_factor_analysis)_FABIA_GFA(Group_Factor_analysis)
 ##Integromics_function_return_directory_contains_(all_tools_features_loading,samples_scores, correlation, and visualization_for_all_methods)
